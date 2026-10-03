@@ -107,12 +107,28 @@ export default function Home() {
         <Faq />
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="flex flex-col gap-5 rounded-2xl border border-line bg-paper p-6 md:flex-row md:items-center md:justify-between md:p-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-muted">New · Scholarship Pathway</p>
+            <h2 className="mt-1 font-display text-2xl font-extrabold md:text-3xl">Want to study abroad?</h2>
+            <p className="mt-2 max-w-2xl text-muted">
+              See international scholarships open to Papua New Guineans, with dates and official links. Free guidance,
+              official links only.
+            </p>
+          </div>
+          <Link href="/scholarships" className="shrink-0 self-start rounded-full bg-ink px-6 py-3 font-semibold text-paper hover:bg-red md:self-center">
+            Find a scholarship →
+          </Link>
+        </div>
+      </section>
+
       <section className="border-y border-line bg-paper-2">
         <div className="mx-auto grid max-w-6xl gap-4 px-4 py-16 md:grid-cols-3">
           <Link href="/programs" className="group rounded-2xl bg-paper p-6 hover:shadow-[6px_6px_0_var(--red)]">
             <p className="font-display text-4xl font-extrabold">{programs.length}</p>
-            <p className="mt-1 font-semibold">programs ready to teach</p>
-            <p className="mt-4 text-sm text-muted group-hover:text-ink">Money, farming and data →</p>
+            <p className="mt-1 font-semibold">programs ready to go</p>
+            <p className="mt-4 text-sm text-muted group-hover:text-ink">Money, farming, data and scholarships →</p>
           </Link>
           <Link href="/partnership" className="group rounded-2xl bg-paper p-6 hover:shadow-[6px_6px_0_var(--gold)]">
             <p className="font-display text-4xl font-extrabold">15–35%</p>

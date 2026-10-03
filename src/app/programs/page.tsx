@@ -9,6 +9,7 @@ const accent = {
   red: { bar: "bg-red", text: "text-red" },
   leaf: { bar: "bg-leaf", text: "text-leaf" },
   gold: { bar: "bg-gold", text: "text-gold" },
+  ink: { bar: "bg-ink", text: "text-ink" },
 };
 
 export default function ProgramsPage() {
@@ -16,17 +17,18 @@ export default function ProgramsPage() {
     <div className="mx-auto max-w-6xl px-4 py-14">
       <h1 className="font-display text-4xl font-extrabold md:text-5xl">Programs you would bring</h1>
       <p className="mt-3 max-w-2xl text-muted">
-        Three ready-made programs. You choose which ones fit your communities. We provide the curriculum,
-        materials and kits.
+        Four ready-made programs. You choose which ones fit your communities. We provide the curriculum,
+        materials and kits, plus a free guide to scholarships abroad.
       </p>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {programs.map((p) => (
           <article key={p.id} className="flex flex-col overflow-hidden rounded-2xl border border-line bg-paper">
             <div className={`h-2 ${accent[p.accent].bar}`} />
             <div className="flex flex-1 flex-col p-6">
               <p className={`text-sm font-semibold italic ${accent[p.accent].text}`}>“{p.tok}”</p>
               <h2 className="mt-1 font-display text-2xl font-bold">{p.name}</h2>
+              {"summary" in p && <p className="mt-2 text-muted">{p.summary}</p>}
               <dl className="mt-4 space-y-2 text-sm">
                 <div>
                   <dt className="text-muted">Who it&apos;s for</dt>
@@ -45,6 +47,14 @@ export default function ProgramsPage() {
                   </li>
                 ))}
               </ul>
+              {"href" in p && (
+                <Link
+                  href={p.href}
+                  className="mt-6 self-start rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper hover:bg-red"
+                >
+                  See scholarships →
+                </Link>
+              )}
             </div>
           </article>
         ))}

@@ -8,6 +8,7 @@ export const contact = {
 export const nav = [
   { href: "/", label: "Overview" },
   { href: "/programs", label: "Programs" },
+  { href: "/scholarships", label: "Scholarships" },
   { href: "/partnership", label: "Partnership" },
   { href: "/roadmap", label: "Roadmap" },
 ];
@@ -83,6 +84,21 @@ export const programs = [
       "A portfolio project on PNG economic data",
     ],
     accent: "gold",
+  },
+  {
+    id: "scholarship",
+    name: "Scholarship Pathway",
+    tok: "Skul long narapela kantri",
+    summary: "Find international scholarships open to Papua New Guineans.",
+    audience: "Students, graduates and young professionals",
+    duration: "Free guide · Official links only",
+    outcomes: [
+      "Find scholarships that accept PNG citizens",
+      "Prepare requirements, documents and deadlines with a Kirap partner",
+      "Apply officially on the provider's own website",
+    ],
+    accent: "ink",
+    href: "/scholarships",
   },
 ] as const;
 
