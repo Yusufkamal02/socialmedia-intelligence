@@ -109,7 +109,7 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
 
 export const config = {
   matcher: [
-    // Every route except the collector itself, build assets and static files.
-    "/((?!api/track|_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|txt|xml|woff2?)$).*)",
+    // Every route except the collector itself, Vercel Analytics (/_vercel), build assets and static files.
+    "/((?!api/track|_vercel|_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|txt|xml|woff2?)$).*)",
   ],
 };
