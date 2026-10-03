@@ -153,6 +153,11 @@ describe("closingSoon", () => {
     );
   });
 
+  it("rounds days left down", () => {
+    assert.deepEqual(closingSoon(list, at("2026-10-03T08:00:00Z")).map((x) => x.daysLeft), [3]);
+    assert.deepEqual(closingSoon(list, at("2026-10-06T01:00:00Z")).map((x) => x.daysLeft), [0]);
+  });
+
   it("picks up later deadlines as they approach", () => {
     const soon = closingSoon(list, at("2026-10-10T00:00:00Z"));
     assert.deepEqual(soon.map((x) => x.scholarship.slug), ["in-17-days"]);

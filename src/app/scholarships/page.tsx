@@ -107,7 +107,7 @@ export default function ScholarshipsPage() {
                     {s.name}
                     <span className="sr-only"> (opens in a new tab)</span>
                   </a>{" "}
-                  — {daysLeft === 0 ? "closes today" : `${daysLeft} ${daysLeft === 1 ? "day" : "days"} left`} (closes{" "}
+                  — {daysLeft === 0 ? "less than a day left" : `${daysLeft} ${daysLeft === 1 ? "day" : "days"} left`} (closes{" "}
                   {formatDate(s.closesAt!)})
                 </li>
               ))}

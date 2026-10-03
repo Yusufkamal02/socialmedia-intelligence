@@ -102,11 +102,12 @@ export function sortScholarships(list: Scholarship[], now: Date): Scholarship[] 
   });
 }
 
+// Rounds down, so we never promise more time than is left.
 export function closingSoon(list: Scholarship[], now: Date, withinDays = 14) {
   const t = now.getTime();
   return sortScholarships(list, now)
     .filter((s) => computeStatus(s, now) === "open" && s.closesAt && time(s.closesAt)! - t <= withinDays * DAY)
-    .map((s) => ({ scholarship: s, daysLeft: Math.max(0, Math.ceil((time(s.closesAt)! - t) / DAY)) }));
+    .map((s) => ({ scholarship: s, daysLeft: Math.floor((time(s.closesAt)! - t) / DAY) }));
 }
 
 export function countries(list: Scholarship[]): string[] {

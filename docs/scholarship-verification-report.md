@@ -53,3 +53,14 @@ The site no longer stores a fixed status. The "After" column is what the page co
 ## Pages that blocked automated access
 
 The US Embassy (403 for one fetcher, fine with another), the Embassy of Japan (403, read in a browser), DFAT (timeout, read in a browser) and the TIAS booklet (403). Plan for a manual check in a browser when re-verifying.
+
+## Link check (3 October 2026)
+
+All `officialUrl` and extra links were requested with HEAD, falling back to GET.
+
+| Result | Links |
+|---|---|
+| 200 OK | chevening.org (2), cscuk.fcdo.gov.uk (2), australiaawardspng.org (2), dfat.gov.au, nzscholarships.govt.nz (2), png.emb-japan.go.jp, studyinjapan.go.jp (2), roc-taiwan.org, icdf.org.tw (2, GET only), knb.kemdiktisaintek.go.id, tias.kemenkeu.go.id, web.dherst.gov.pg, eacea.ec.europa.eu |
+| 200 with curl, failed in Node fetch (response headers too large) | pg.usembassy.gov (4 pages). They work in a browser. |
+| 403 to scripts, loads in a browser | www2.daad.de (DAAD EPOS) |
+| **Failed** | **www.campuschina.org**: DNS/CDN failure, would not load in a browser either. **Removed** from the Chinese Government Scholarship card. The DHERST page still explains how to apply online. |

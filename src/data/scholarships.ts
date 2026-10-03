@@ -267,9 +267,9 @@ export const scholarships: Scholarship[] = [
     levels: ["bachelor", "master", "phd"],
     funding: "Chinese Government scholarship under the China and PNG higher education agreement.",
     pngEligibility:
-      "For PNG citizens, through DHERST. Age limits: under 25 for bachelor's (with a Grade 12 GPA of 2.5 or above), under 35 for master's and under 40 for PhD. You apply online and also send printed copies to DHERST.",
+      "For PNG citizens, through DHERST. Age limits: under 25 for bachelor's (with a Grade 12 GPA of 2.5 or above), under 35 for master's and under 40 for PhD. You apply online (DHERST's page explains how) and also send printed copies to DHERST.",
     officialUrl: "https://web.dherst.gov.pg/students/scholarships/study-overseas/chinese-government",
-    extraUrls: [{ label: "Campus China (online application)", url: "https://www.campuschina.org" }],
+    extraUrls: [],
     opensAt: null,
     closesAt: null,
     deadlineNote: "Check the official page for the latest dates.",
