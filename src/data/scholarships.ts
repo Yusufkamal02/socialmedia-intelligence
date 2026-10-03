@@ -1,335 +1,316 @@
 // Scholarship Pathway data. This file is the single source of truth for /scholarships.
 // Edit entries here; the page recomputes each status from the dates on every request.
 // Only use official sources for dates. See docs/scholarship-verification-report.md.
+//
+// Dates are ISO 8601 with the provider's own time zone. When a deadline has a
+// day but no time, use 23:59 in the time zone of whoever receives the application.
 
 import type { Scholarship } from "@/lib/scholarships";
 
 export const scholarships: Scholarship[] = [
   {
-    "slug": "chevening",
-    "name": "Chevening",
-    "country": "United Kingdom",
-    "levels": [
-      "master"
+    slug: "chevening",
+    name: "Chevening Scholarships",
+    country: "United Kingdom",
+    levels: ["master"],
+    funding: "One-year master's in the UK. Pays tuition, a monthly allowance, return flights, one visa and arrival and departure allowances.",
+    pngEligibility:
+      "Open to PNG citizens. You need about two years of work experience, must apply to three eligible UK master's courses, and must return to PNG for at least two years after the award.",
+    officialUrl: "https://www.chevening.org/scholarship/papua-new-guinea/",
+    extraUrls: [{ label: "Application timeline", url: "https://www.chevening.org/scholarships/application-timeline/" }],
+    opensAt: "2026-08-04T11:00:00Z",
+    closesAt: "2026-10-06T11:00:00Z",
+    deadlineNote: "Closes 6 Oct 2026 at 11:00 UTC (9:00 pm PNG time).",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.chevening.org/scholarships/application-timeline/",
+  },
+  {
+    slug: "commonwealth-masters",
+    name: "Commonwealth Master's Scholarships",
+    country: "United Kingdom",
+    levels: ["master"],
+    funding: "Full-time taught master's in the UK. Pays tuition, return flights, a monthly stipend and some travel costs.",
+    pngEligibility:
+      "PNG is on the eligible country list. You apply through a national nominating agency (for PNG, contact DHERST) and to the Commonwealth Scholarship Commission. You need at least an upper second-class (2:1) degree, must show you cannot pay for UK study yourself, and must commit to return home.",
+    officialUrl: "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+    extraUrls: [
+      { label: "Commonwealth Shared Scholarships", url: "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-shared-scholarships-applications/" },
     ],
-    "funding": "Biaya kuliah, tunjangan bulanan, tiket, 1x visa, tunjangan kedatangan dan kepulangan",
-    "pngEligibility": "PNG punya halaman khusus. Kerja minimal 2 tahun (sekitar 2.800 jam), wajib kembali ke PNG minimal 2 tahun, memilih 3 program S2 di Inggris. PNG pernah mendapat 10 tempat pada 2023 (data lama).",
-    "officialUrl": "https://www.chevening.org/scholarship/papua-new-guinea/",
-    "extraUrls": [
+    opensAt: null,
+    closesAt: "2026-10-20T16:00:00+01:00",
+    deadlineNote:
+      "Closes 20 Oct 2026 at 16:00 UK time (1:00 am PNG time on 21 Oct). Your nominating agency may set an earlier deadline.",
+    nextRound: { text: "For 2027/28 study. The next round is not announced yet.", confirmed: false },
+    statusOverride: "open",
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/",
+  },
+  {
+    slug: "australia-awards",
+    name: "Australia Awards Scholarships",
+    country: "Australia",
+    levels: ["master"],
+    funding: "Long-term study in Australia. Pays return flights, tuition, a living allowance, an establishment allowance and health cover.",
+    pngEligibility:
+      "For PNG citizens who live and work in PNG. Usually for a master's degree. You need at least two years of work experience and IELTS 6.5 (no band under 6.0). Women, people with disability and people from rural areas are encouraged to apply.",
+    officialUrl: "https://www.australiaawardspng.org/scholarships/australia-awards-scholarship",
+    extraUrls: [
       {
-        "label": "More information",
-        "url": "https://www.chevening.org/scholarships/application-timeline/"
-      }
+        label: "Opening and closing dates (DFAT)",
+        url: "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships-opening-and-closing-dates",
+      },
+      { label: "Scholarships to study in PNG", url: "https://www.australiaawardspng.org/scholarships/australia-awards-png-scholarships" },
     ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Tutup 6 Okt 2026 pukul 11:00 UTC (18:00 WIB / 21:00 waktu PNG)",
-    "nextRound": {
-      "text": "Estimasi: buka sekitar Agu-Sep 2027, tutup sekitar Okt 2027",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.chevening.org/scholarship/papua-new-guinea/"
+    opensAt: "2026-02-01T09:00:00+11:00",
+    closesAt: "2026-04-30T14:00:00+10:00",
+    deadlineNote: "Last round: 1 Feb to 30 Apr 2026.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships-opening-and-closing-dates",
   },
   {
-    "slug": "australia-awards",
-    "name": "Australia Awards",
-    "country": "Australia",
-    "levels": [
-      "bachelor",
-      "master",
-      "phd"
+    slug: "manaaki-new-zealand",
+    name: "Manaaki New Zealand Scholarships",
+    country: "New Zealand",
+    levels: ["bachelor", "master", "phd"],
+    funding: "Full New Zealand Government scholarship for study in New Zealand.",
+    pngEligibility:
+      "PNG citizens can apply to study in New Zealand (not at Pacific universities). Levels include bachelor's, postgraduate certificate and diploma, master's and PhD. Study usually starts in semester 1 of the year after you apply.",
+    officialUrl: "https://www.nzscholarships.govt.nz/check-eligible-countries/",
+    extraUrls: [
+      { label: "Opening and closing dates", url: "https://www.nzscholarships.govt.nz/application-opening-and-closing-dates-for-your-country/" },
     ],
-    "funding": "Beasiswa pemerintah Australia (tunjangan dan biaya studi sesuai kebijakan program)",
-    "pngEligibility": "Warga PNG tanpa kewarganegaraan ganda, tinggal dan bekerja di PNG saat mendaftar. Pendaftar dari perempuan, penyandang disabilitas, dan daerah pedesaan sangat didorong.",
-    "officialUrl": "https://www.australiaawardspng.org/scholarships/australia-awards-png-scholarships",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships-opening-and-closing-dates"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Intake 2027: 1 Feb - 30 Apr 2026",
-    "nextRound": {
-      "text": "Estimasi: intake 2028 buka sekitar Feb 2027 (belum resmi)",
-      "confirmed": false
-    },
-    "sourceType": "third-party",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.australiaawardspng.org/scholarships/australia-awards-png-scholarships"
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "The official page says tertiary applications are closed.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    statusOverride: "closed",
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.nzscholarships.govt.nz/check-eligible-countries/",
   },
   {
-    "slug": "manaaki-new-zealand-scholarships",
-    "name": "Manaaki New Zealand Scholarships",
-    "country": "New Zealand",
-    "levels": [
-      "bachelor",
-      "master",
-      "phd"
-    ],
-    "funding": "Beasiswa penuh pemerintah Selandia Baru",
-    "pngEligibility": "PNG masuk daftar negara Pasifik yang eligible. Rencana mulai studi: semester 1 tahun setelah mendaftar. Portal dapat tutup lebih awal bila pendaftar banyak.",
-    "officialUrl": "https://www.nzscholarships.govt.nz/check-eligible-countries/",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://mnzspapplicantportal.powerappsportals.com/"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Aplikasi tertiary saat ini ditutup (tanggal persis tidak tercantum di halaman)",
-    "nextRound": {
-      "text": "Belum diumumkan. Putaran 2026 (pihak ketiga): 1 Mar - 10 Apr",
-      "confirmed": false
-    },
-    "sourceType": "third-party",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.nzscholarships.govt.nz/check-eligible-countries/"
+    slug: "fulbright",
+    name: "Fulbright Foreign Student Program",
+    country: "United States",
+    levels: ["master"],
+    funding: "Up to two years of master's study in the US. Pays tuition, a monthly stipend, return travel and health benefits.",
+    pngEligibility:
+      "For PNG citizens living in PNG. You need a four-year bachelor's degree and at least two years of work experience. Dual US/PNG citizens cannot apply.",
+    officialUrl: "https://pg.usembassy.gov/fulbright-graduate-student-program/",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: "2026-04-30T23:59:00+10:00",
+    deadlineNote: "Last round closed 30 Apr 2026.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://pg.usembassy.gov/fulbright-graduate-student-program/",
   },
   {
-    "slug": "commonwealth-scholarships",
-    "name": "Commonwealth Scholarships (Master, PhD, Shared, Distance Learning)",
-    "country": "United Kingdom",
-    "levels": [
-      "master",
-      "phd"
-    ],
-    "funding": "Biaya kuliah, tiket, tunjangan hidup (varian Distance Learning: keringanan biaya kuliah)",
-    "pngEligibility": "PNG ada di daftar negara berkembang Commonwealth yang eligible. Shared Scholarship mensyaratkan bukti tidak mampu membiayai sendiri dan harus mendaftar program yang eligible.",
-    "officialUrl": "https://cscuk.fcdo.gov.uk",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://www.southampton.ac.uk/study/fees-funding/scholarships/partnerships-commonwealth-shared"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Putaran 2026/27 sudah tutup (Shared Scholarship: sekitar 9 Des 2025 menurut sumber pihak ketiga)",
-    "nextRound": {
-      "text": "Siklus 2027/28: cek langsung ke CSC UK",
-      "confirmed": false
-    },
-    "sourceType": "third-party",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://cscuk.fcdo.gov.uk"
+    slug: "us-south-pacific-scholarship",
+    name: "U.S. South Pacific Scholarship Program (USSP)",
+    country: "United States",
+    levels: ["bachelor", "master"],
+    funding: "Pays tuition, fees, books, housing, health insurance, a stipend and travel.",
+    pngEligibility:
+      "PNG is an eligible country. Bachelor's study is at the University of Hawai'i at Hilo and master's study at Manoa, in fields that help Pacific island development.",
+    officialUrl: "https://pg.usembassy.gov/ussp-scholarship-program/",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "The official page says applications are closed.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    statusOverride: "closed",
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://pg.usembassy.gov/ussp-scholarship-program/",
   },
   {
-    "slug": "fulbright-foreign-student-program",
-    "name": "Fulbright Foreign Student Program",
-    "country": "United States",
-    "levels": [
-      "master"
-    ],
-    "funding": "Studi pascasarjana yang didanai pemerintah AS",
-    "pngEligibility": "Khusus warga PNG. Tanpa tanggungan (dependents). Wajib pulang minimal 2 tahun (syarat visa J). Tidak wajib tes standar saat mendaftar.",
-    "officialUrl": "https://pg.usembassy.gov/fulbright-graduate-student-program/",
-    "extraUrls": [],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Putaran terakhir: 30 Apr 2026",
-    "nextRound": {
-      "text": "Belum diumumkan",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://pg.usembassy.gov/fulbright-graduate-student-program/"
+    slug: "humphrey-fellowship",
+    name: "Hubert H. Humphrey Fellowship",
+    country: "United States",
+    levels: ["exchange"],
+    funding: "Ten-month non-degree fellowship with study and a work placement. Pays travel, tuition, books and a monthly stipend.",
+    pngEligibility:
+      "For PNG citizens living in PNG who are mid-career professionals. You need a four-year bachelor's degree and at least five years of work experience.",
+    officialUrl: "https://pg.usembassy.gov/hubert-h-humphrey-fellowship-program/",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "The official page says applications are closed.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    statusOverride: "closed",
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://pg.usembassy.gov/hubert-h-humphrey-fellowship-program/",
   },
   {
-    "slug": "u-s-south-pacific-scholarship-program",
-    "name": "U.S. South Pacific Scholarship Program (USSP)",
-    "country": "United States",
-    "levels": [
-      "bachelor",
-      "master"
-    ],
-    "funding": "Biaya kuliah, buku, perumahan, asuransi, tunjangan, tiket",
-    "pngEligibility": "PNG termasuk negara eligible. Bidang studi diarahkan pada kebutuhan pembangunan negara kepulauan Pasifik.",
-    "officialUrl": "https://pg.usembassy.gov/ussp-scholarship-program/",
-    "extraUrls": [],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Halaman resmi menyatakan aplikasi tertutup (halaman tidak mencantumkan tanggal terbaru)",
-    "nextRound": {
-      "text": "Belum diumumkan",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://pg.usembassy.gov/ussp-scholarship-program/"
+    slug: "global-ugrad",
+    name: "Global Undergraduate Exchange Program (Global UGRAD)",
+    country: "United States",
+    levels: ["exchange"],
+    funding: "One semester of non-degree study at a US college or university, funded by the US Government.",
+    pngEligibility:
+      "Listed by the US Embassy in PNG. For current university students, especially from groups who have had few chances to study in the US.",
+    officialUrl: "https://pg.usembassy.gov/education/exchange-programs/",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "Check the official page for the latest dates.",
+    nextRound: { text: "Dates not published.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://pg.usembassy.gov/education/exchange-programs/",
   },
   {
-    "slug": "humphrey-fellowship-dan-global-ugrad",
-    "name": "Humphrey Fellowship dan Global UGRAD",
-    "country": "United States",
-    "levels": [
-      "exchange"
+    slug: "mext",
+    name: "Japanese Government (MEXT) Scholarship",
+    country: "Japan",
+    levels: ["master", "diploma"],
+    funding: "Japanese Government scholarship. Research Students: up to two years of graduate study. Specialized Training College: three years, including one year of Japanese language.",
+    pngEligibility:
+      "Apply through the Embassy of Japan in PNG. Research Students need a bachelor's degree and must be born on or after 2 Apr 1992. Specialized Training College applicants need Grade 12 and must be born on or after 2 Apr 2002. Applications go in a sealed envelope; fax and email are not accepted.",
+    officialUrl: "https://www.png.emb-japan.go.jp/itpr_en/b_000090_00180.html",
+    extraUrls: [
+      { label: "Research Students guideline", url: "https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html" },
+      { label: "Specialized Training College guideline", url: "https://www.studyinjapan.go.jp/en/smap-stopj-applications-specialized.html" },
     ],
-    "funding": "Didanai pemerintah AS",
-    "pngEligibility": "Humphrey: khusus warga PNG yang tinggal di PNG, gelar sarjana 4 tahun, tanpa tanggungan. UGRAD: untuk mahasiswa dari latar belakang kurang terwakili.",
-    "officialUrl": "https://pg.usembassy.gov/hubert-h-humphrey-fellowship-program/",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://pg.usembassy.gov/education/exchange-programs/"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Humphrey: halaman resmi menyatakan tertutup",
-    "nextRound": {
-      "text": "Belum diumumkan",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://pg.usembassy.gov/hubert-h-humphrey-fellowship-program/"
+    opensAt: "2026-04-21T00:00:00+10:00",
+    closesAt: "2026-06-04T23:59:00+10:00",
+    deadlineNote: "2027 round closed: 28 May 2026 (Specialized Training College) and 4 Jun 2026 (Research Students).",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.png.emb-japan.go.jp/itpr_en/b_000090_00180.html",
   },
   {
-    "slug": "mext",
-    "name": "MEXT (Japanese Government Scholarship, rekomendasi Kedubes)",
-    "country": "Japan",
-    "levels": [
-      "bachelor",
-      "master",
-      "diploma",
-      "other"
-    ],
-    "funding": "Beasiswa pemerintah Jepang",
-    "pngEligibility": "Melalui Kedubes Jepang di PNG. Aplikasi dikirim dalam amplop tertutup, tidak diterima lewat fax atau email. Tiga tahap seleksi: dokumen, ujian dan wawancara di PNG, seleksi akhir di MEXT.",
-    "officialUrl": "https://www.png.emb-japan.go.jp/itpr_en/b_000090_00180.html",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://www.studyinjapan.go.jp/en/smap-stopj-applications-research.html"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Specialized Training College: 28 Mei 2026. Research Students: 4 Jun 2026",
-    "nextRound": {
-      "text": "Estimasi: sekitar Apr-Jun 2027 (pola tahunan, belum resmi)",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.png.emb-japan.go.jp/itpr_en/b_000090_00180.html"
+    slug: "mofa-taiwan",
+    name: "MOFA Taiwan Scholarship",
+    country: "Taiwan",
+    levels: ["bachelor", "master", "phd", "other"],
+    funding: "One return economy flight and a monthly allowance (NT$28,000 for Mandarin study, NT$33,000 for degree study).",
+    pngEligibility:
+      "One scholarship for a PNG citizen in the 2026 round. Neither parent may ever have held Taiwan nationality. You must be admitted to a Taiwan university or Mandarin centre, and apply in person at the Taipei Economic Office in Port Moresby.",
+    officialUrl: "https://www.roc-taiwan.org/pg_en/post/1942.html",
+    extraUrls: [],
+    opensAt: "2026-02-02T00:00:00+10:00",
+    closesAt: "2026-03-31T23:59:00+10:00",
+    deadlineNote: "2026 round: 2 Feb to 31 Mar 2026.",
+    nextRound: { text: "2027 round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.roc-taiwan.org/pg_en/post/1942.html",
   },
   {
-    "slug": "mofa-taiwan-scholarship",
-    "name": "MOFA Taiwan Scholarship",
-    "country": "Taiwan",
-    "levels": [
-      "bachelor",
-      "master",
-      "phd",
-      "other"
-    ],
-    "funding": "Tiket pulang-pergi kelas ekonomi dan tunjangan bulanan (program persiapan Mandarin: NT$28.000/bulan hingga 1 tahun)",
-    "pngEligibility": "KUOTA EKSPLISIT: 1 beasiswa untuk warga PNG (putaran 2026). Orang tua tidak boleh pernah berkewarganegaraan Taiwan. Daftar langsung (in person) di Taipei Economic Office di PNG.",
-    "officialUrl": "https://www.roc-taiwan.org/pg_en/post/1942.html",
-    "extraUrls": [],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Putaran 2026: kuliah dimulai paling lambat Agu 2026",
-    "nextRound": {
-      "text": "Belum terlihat untuk 2027",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.roc-taiwan.org/pg_en/post/1942.html"
+    slug: "taiwanicdf",
+    name: "TaiwanICDF International Higher Education Scholarship",
+    country: "Taiwan",
+    levels: ["bachelor", "master", "phd"],
+    funding: "Full scholarship at a partner university in Taiwan, including tuition, housing, insurance, books, flights and a monthly allowance.",
+    pngEligibility:
+      "PNG is on the eligible country list. You cannot hold another Taiwan Government scholarship in the same academic year.",
+    officialUrl: "https://www.icdf.org.tw/wSite/np?ctNode=31566&CtUnit=368&BaseDSD=7&mp=2",
+    extraUrls: [{ label: "Eligibility", url: "https://www.icdf.org.tw/wSite/np?ctNode=31563&CtUnit=365&BaseDSD=7&mp=2" }],
+    opensAt: "2026-12-01T00:00:00+08:00",
+    closesAt: "2027-03-15T23:59:00+08:00",
+    deadlineNote: "2027 round: 1 Dec 2026 to 15 Mar 2027.",
+    nextRound: { text: "Opens 1 Dec 2026.", confirmed: true },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.icdf.org.tw/wSite/np?ctNode=31566&CtUnit=368&BaseDSD=7&mp=2",
   },
   {
-    "slug": "taiwanicdf-international-higher-education-scholarship",
-    "name": "TaiwanICDF International Higher Education Scholarship",
-    "country": "Taiwan",
-    "levels": [
-      "master",
-      "phd"
-    ],
-    "funding": "Biaya kuliah, perumahan, asuransi, buku, tiket, tunjangan bulanan (S2 NT$18.000, S3 NT$20.000)",
-    "pngEligibility": "PNG ada di daftar negara eligible. Tidak boleh sedang memegang beasiswa pemerintah Taiwan lain pada tahun akademik yang sama.",
-    "officialUrl": "https://www.icdf.org.tw",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://www.estudiarentaiwan.org/userfiles/files/TaiwanICDF%202026%20Higher%20Education%20Application%20Guidebook%20(1).pdf"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Deadline tahunan 15 Maret",
-    "nextRound": {
-      "text": "Estimasi: 15 Mar 2027 (sumber pihak ketiga)",
-      "confirmed": false
-    },
-    "sourceType": "third-party",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://www.icdf.org.tw"
+    slug: "knb",
+    name: "KNB Scholarship (Developing Countries Partnership)",
+    country: "Indonesia",
+    levels: ["bachelor", "master", "phd"],
+    funding: "Indonesian Government scholarship for students from developing countries at 47 partner universities.",
+    pngEligibility:
+      "PNG is listed in the official 2026 guideline. You need a recommendation letter from the Indonesian Embassy in Port Moresby or the Consulate in Vanimo. Bachelor's applicants must be 21 or younger.",
+    officialUrl: "https://knb.kemdiktisaintek.go.id/",
+    extraUrls: [],
+    opensAt: "2026-02-02T00:00:00+07:00",
+    closesAt: "2026-03-31T23:59:00+07:00",
+    deadlineNote: "2026 round: 2 Feb to 31 Mar 2026.",
+    nextRound: { text: "2027 round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://knb.kemdiktisaintek.go.id/",
   },
   {
-    "slug": "knb",
-    "name": "KNB (Kemitraan Negara Berkembang)",
-    "country": "Indonesia",
-    "levels": [
-      "bachelor",
-      "master",
-      "phd"
-    ],
-    "funding": "Beasiswa pemerintah Indonesia untuk mahasiswa dari negara berkembang",
-    "pngEligibility": "Mahasiswa PNG sudah berpartisipasi (3 orang pada 2024, menurut pemerintah RI). Daftar negara eligible per tahun perlu dicek di panduan.",
-    "officialUrl": "https://knb.kemdiktisaintek.go.id/",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://balaibahasapapua.kemdikbud.go.id/portal/public/informasi/detail-berita/259"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Pendaftaran 2025: 3-21 Mar 2025",
-    "nextRound": {
-      "text": "Estimasi: sekitar Maret 2027 (belum resmi)",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://knb.kemdiktisaintek.go.id/"
+    slug: "tias",
+    name: "Indonesian AID Scholarship (TIAS)",
+    country: "Indonesia",
+    levels: ["diploma", "bachelor", "master", "phd"],
+    funding: "Full Indonesian Government scholarship, including tuition, flights, visa, health insurance, living and housing allowances and an Indonesian language course.",
+    pngEligibility:
+      "PNG is a priority country. Mainly for civil servants or people officially nominated by the PNG Government. Ask the Indonesian Embassy in Port Moresby for an application account. You must return to serve in PNG for at least two years.",
+    officialUrl: "https://tias.kemenkeu.go.id/landing/",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "Check the official page for the latest dates.",
+    nextRound: { text: "Dates not published on the official page.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://tias.kemenkeu.go.id/landing/",
   },
   {
-    "slug": "tias",
-    "name": "TIAS (The Indonesian AID Scholarship)",
-    "country": "Indonesia",
-    "levels": [
-      "bachelor",
-      "master",
-      "phd",
-      "diploma"
-    ],
-    "funding": "Beasiswa penuh pemerintah Indonesia",
-    "pngEligibility": "PNG tercantum sebagai negara prioritas. Terutama untuk PNS atau kandidat yang dinominasikan pemerintah. Akun aplikasi diminta lewat KBRI Port Moresby (portmoresby.kbri@kemlu.go.id).",
-    "officialUrl": "https://tias.kemenkeu.go.id/landing/",
-    "extraUrls": [
-      {
-        "label": "More information",
-        "url": "https://tias.kemenkeu.go.id/Files/Documents/Booklet-TIAS-intake-2026.pdf"
-      }
-    ],
-    "opensAt": null,
-    "closesAt": null,
-    "deadlineNote": "Intake 2026: pendaftaran 16 Feb - 17 Apr 2026",
-    "nextRound": {
-      "text": "Estimasi: sekitar Feb-Apr 2027 (pola tahunan)",
-      "confirmed": false
-    },
-    "sourceType": "official",
-    "lastVerified": "2026-10-03",
-    "verifiedBy": "https://tias.kemenkeu.go.id/landing/"
-  }
+    slug: "chinese-government-scholarship",
+    name: "Chinese Government Scholarship",
+    country: "China",
+    levels: ["bachelor", "master", "phd"],
+    funding: "Chinese Government scholarship under the China and PNG higher education agreement.",
+    pngEligibility:
+      "For PNG citizens, through DHERST. Age limits: under 25 for bachelor's (with a Grade 12 GPA of 2.5 or above), under 35 for master's and under 40 for PhD. You apply online and also send printed copies to DHERST.",
+    officialUrl: "https://web.dherst.gov.pg/students/scholarships/study-overseas/chinese-government",
+    extraUrls: [{ label: "Campus China (online application)", url: "https://www.campuschina.org" }],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "Check the official page for the latest dates.",
+    nextRound: { text: "Next round not announced yet.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://web.dherst.gov.pg/students/scholarships/study-overseas/chinese-government",
+  },
+  {
+    slug: "erasmus-mundus",
+    name: "Erasmus Mundus Joint Master Scholarships",
+    country: "Europe (several countries)",
+    levels: ["master"],
+    funding: "EU-funded scholarships for joint master's programmes taught in two or more European countries.",
+    pngEligibility: "Open to students of all nationalities, including PNG citizens. You apply directly to each programme.",
+    officialUrl: "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "Each programme sets its own deadline. Most are between October and January.",
+    nextRound: { text: "Dates differ by programme.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+  },
+  {
+    slug: "daad-epos",
+    name: "DAAD Development-Related Postgraduate Courses (EPOS)",
+    country: "Germany",
+    levels: ["master", "phd"],
+    funding: "Monthly stipend, health insurance and a travel allowance for selected postgraduate courses in Germany.",
+    pngEligibility:
+      "PNG is on the eligible country list. You need a bachelor's degree (normally four years), at least two years of related work experience, and strong grades. Your degree should normally be no more than six years old.",
+    officialUrl: "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
+    extraUrls: [],
+    opensAt: null,
+    closesAt: null,
+    deadlineNote: "Each course sets its own deadline. Check the course list on the official page.",
+    nextRound: { text: "Dates differ by course.", confirmed: false },
+    sourceType: "official",
+    lastVerified: "2026-10-03",
+    verifiedBy: "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database/?detail=50076777",
+  },
 ];
