@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kirap — partnership microsite
 
-## Getting Started
+Next.js 16 microsite recruiting local partners in Papua New Guinea, with visitor tracking on every route.
 
-First, run the development server:
+## Run
 
 ```bash
+cp .env.example .env.local   # fill TRACK_SECRET and ADMIN_PASSWORD
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Give each prospect a neutral code, e.g. `https://<domain>/?ref=p01`, and keep the code→person mapping privately. The `ref` is stored in a cookie, so every later visit is tagged too.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Purpose |
+|---|---|
+| `/` | Overview + "Why you" |
+| `/programs` | The 3 programs + material previews |
+| `/partnership` | Roles, revenue share, earnings calculator |
+| `/roadmap` | 90-day pilot plan |
+| `/join` | Interest form → `POST /api/interest` |
+| `/admin` | Visitor monitor (basic auth: `ADMIN_USER` / `ADMIN_PASSWORD`) |
 
-## Learn More
+## Tracking
 
-To learn more about Next.js, take a look at the following resources:
+- `src/proxy.ts` is the middleware (Next 16 renamed `middleware.ts` to `proxy.ts`). On every route it records IP, path, query, visitor ID, `ref`, user agent, referer and country/city headers, then sends the event to `/api/track` in the background.
+- `src/components/route-beacon.tsx` pings `/api/pv` on in-site navigations, which the router often serves from its prefetch cache without hitting the server.
+- `/api/track` appends to `data/visits.jsonl`, logs to the console, and forwards each event to `TRACK_WEBHOOK_URL` if it is set.
+- Completed role quizzes are sent to `/api/quiz`, which recomputes the result server-side and appends it to `data/quiz.jsonl` with IP, visitor ID and `ref`.
+- When `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are set, a Telegram message is sent for each new visitor's first page, every full page load from a `ref`-tagged visitor, each completed quiz and each interest form. Bots and link-preview fetchers are skipped.
+- Prefetches, RSC router fetches, HEAD/OPTIONS and `/admin` itself are not counted.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Storage is a local JSONL file. For serverless hosting (e.g. Vercel), swap `src/lib/store.ts` for a database.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Content and illustrative numbers live in `src/lib/content.ts`.
